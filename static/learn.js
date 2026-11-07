@@ -189,6 +189,7 @@
     $('learnTokenButton').textContent = tokenAdded ? 'Reset the example ↺' : 'Add a possible next token →';
     $('learnTokenStatus').textContent = tokenAdded ? '“mat” joins the context. To continue, the model runs forward again and scores the next token using the longer text. This example is an illustration, not live inference.' : 'Illustrative scores, not a live model prediction. A higher score makes a token more likely, not certain.';
   });
+  document.addEventListener('terraincognita:viewchange', event => { if (event.detail?.view !== 'learn') stop(); });
   document.addEventListener('uncharted:viewchange', event => { if (event.detail?.view !== 'learn') stop(); });
   document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); });
   renderValues(); renderStage();

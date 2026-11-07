@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111c25">
-  <title>Uncharted — a small window into AI</title>
+  <title>Terra Incognita — a small window into AI</title>
   <link rel="stylesheet" href="/static/styles.css">
   <link rel="stylesheet" href="/static/navigation.css">
   <link rel="stylesheet" href="/static/learn.css">
@@ -13,137 +14,270 @@
   <script src="/static/learn.js" defer></script>
   <script src="/static/navigation.js" defer></script>
 </head>
+
 <body>
   <a class="skip-link" id="skipContent" href="#experiment">Skip to experiment</a>
   <div class="site-shell">
     <header class="masthead">
-      <a class="wordmark" href="#experiment" data-view-target="experiment" aria-label="Uncharted home"><span class="door-mark" aria-hidden="true"></span>uncharted<span class="wordmark-dot" aria-hidden="true">.</span></a>
+      <a class="wordmark" href="#experiment" data-view-target="experiment" aria-label="Terra Incognita home"><span
+          class="door-mark" aria-hidden="true"></span>terra incognita<span class="wordmark-dot"
+          aria-hidden="true">.</span></a>
       <div class="masthead-right">
-        <div class="runtime-status"><span id="statusDot" class="status-dot"></span><span id="modelStatus">Connecting to local model</span></div>
-        <div class="page-switch" role="tablist" aria-label="Explore Uncharted">
-          <button id="experimentTab" class="page-tab" type="button" role="tab" aria-selected="true" aria-controls="experimentView" tabindex="0" data-view-target="experiment">Experiment</button>
-          <button id="learnTab" class="page-tab" type="button" role="tab" aria-selected="false" aria-controls="learnView" tabindex="-1" data-view-target="learn">Learn</button>
+        <div class="runtime-status"><span id="statusDot" class="status-dot"></span><span id="modelStatus">Connecting to
+            local model</span></div>
+        <div class="page-switch" role="tablist" aria-label="Explore Terra Incognita">
+          <button id="experimentTab" class="page-tab" type="button" role="tab" aria-selected="true"
+            aria-controls="experimentView" tabindex="0" data-view-target="experiment">Experiment</button>
+          <button id="learnTab" class="page-tab" type="button" role="tab" aria-selected="false"
+            aria-controls="learnView" tabindex="-1" data-view-target="learn">Learn</button>
         </div>
       </div>
     </header>
 
     <main>
       <div id="experimentView" role="tabpanel" aria-labelledby="experimentTab" tabindex="0">
-      <section class="intro" aria-labelledby="pageTitle">
-        <div class="intro-copy">
-          <p class="eyebrow">AN EXPEDITION INSIDE A LANGUAGE MODEL</p>
-          <h1 id="pageTitle">Open a door<br>into <em>AI.</em></h1>
-          <p class="intro-description">Same question. Same model. A change on the inside.<br class="desktop-break"> Adjust two internal signals and investigate what happens.</p>
-        </div>
-        <div class="intro-note">
-          <span class="note-index">FIELD NOTE / 001</span>
-          <p>A neuron's activation is one small signal in a much larger computation. Changing it can influence an answer. It doesn't tell us the whole story.</p>
-          <a href="#learn" data-view-target="learn">New here? Learn how neurons work <span aria-hidden="true">↗</span></a>
-        </div>
-      </section>
 
-      <div class="experiment-heading" id="experiment">
-        <div><p class="eyebrow">YOUR FIRST EXPERIMENT</p><h2>Change. Compare. Question.</h2></div>
-        <div class="mode-switch" role="group" aria-label="Experiment mode">
-          <button id="exploreMode" type="button" class="mode-button active" aria-pressed="true">Explore freely</button>
-          <button id="guideMode" type="button" class="mode-button" aria-pressed="false">Guide me <span aria-hidden="true">↗</span></button>
-        </div>
-      </div>
-
-      <section id="guidePanel" class="guide-panel" aria-labelledby="guideTitle" hidden>
-        <div class="guide-intro"><span class="section-number">?</span><div><h3 id="guideTitle">Are both neurons needed?</h3><p>Predict, test each condition, then decide what the evidence supports. Each run includes the unchanged model.</p></div></div>
-        <div class="guide-body">
-          <div class="prediction"><label for="prediction">My prediction</label><select id="prediction"><option value="">Choose a hypothesis (optional)</option><option value="both">Both neurons are needed for the effect</option><option value="a">Neuron A produces most of the effect</option><option value="b">Neuron B produces most of the effect</option><option value="unsure">I'm not sure yet</option></select></div>
-          <div class="guide-steps" aria-label="Experiment conditions">
-            <button type="button" class="guide-step" data-guide="both"><span class="step-number">1</span><span><strong>Both together</strong><small data-step-state="both">Set this condition</small></span><span data-step-check="both" aria-hidden="true">↗</span></button>
-            <button type="button" class="guide-step" data-guide="a"><span class="step-number">2</span><span><strong>Only neuron A</strong><small data-step-state="a">Set this condition</small></span><span data-step-check="a" aria-hidden="true">↗</span></button>
-            <button type="button" class="guide-step" data-guide="b"><span class="step-number">3</span><span><strong>Only neuron B</strong><small data-step-state="b">Set this condition</small></span><span data-step-check="b" aria-hidden="true">↗</span></button>
+        <div class="experiment-heading" id="experiment">
+          <div>
+            <h2>Your First Experiment</h2>
+          </div>
+          <div class="mode-switch" role="group" aria-label="Experiment mode">
+            <button id="exploreMode" type="button" class="mode-button active" aria-pressed="true">Explore
+              freely</button>
+            <button id="guideMode" type="button" class="mode-button" aria-pressed="false">Guide me <span
+                aria-hidden="true">↗</span></button>
           </div>
         </div>
-        <div id="reflectionSection" class="reflection-section" hidden><label for="reflection">What changed your mind?</label><p>Compare the three results above. Does your explanation also hold for a different question? An unexpected result is evidence, too.</p><textarea id="reflection" rows="2" maxlength="2000" placeholder="I observed… My explanation might fail when…"></textarea><small>Your prediction and reflection are included when you copy or download the displayed experiment.</small></div>
-        <p id="guideProgress" class="guide-progress">Choose a condition, then run the experiment below.</p>
-      </section>
 
-      <!-- 3D Neural Circuit & Layer Lattice Stage -->
-      <section class="lattice-stage-container" aria-label="3D neural layer and circuit lattice visualization">
-        <div class="lattice-canvas-wrap">
-          <canvas id="latticeCanvas"></canvas>
-          <div class="lattice-hud-overlay">
-            <div class="canvas-controls-hint">
-              <span>[ Drag to rotate 3D · Scroll to zoom · Double-click to reset ]</span>
-            </div>
-            <div class="lattice-layer-legend">
-              <span class="legend-chip legend-a"><span class="legend-dot dot-a"></span> Layer 14 · Neuron 8949 (A)</span>
-              <span class="legend-chip legend-b"><span class="legend-dot dot-b"></span> Layer 13 · Neuron 7956 (B)</span>
-              <span class="legend-chip legend-c"><span class="legend-dot dot-c"></span> Residual Stream</span>
+        <section id="guidePanel" class="guide-panel" aria-labelledby="guideTitle" hidden>
+          <div class="guide-intro"><span class="section-number">?</span>
+            <div>
+              <h3 id="guideTitle">Are both neurons needed?</h3>
+              <p>Predict, test each condition, then decide what the evidence supports. Each run includes the unchanged
+                model.</p>
             </div>
           </div>
-        </div>
-      </section>
-
-      <div class="workspace">
-        <section class="control-panel" aria-label="Experiment controls">
-          <form id="experimentForm">
-            <fieldset id="experimentControls">
-              <div class="control-section prompt-section">
-                <div class="section-title"><span class="section-number">01</span><h3>Ask a question</h3></div>
-                <label class="visually-hidden" for="prompt">Prompt for both conditions</label>
-                <textarea id="prompt" rows="4" maxlength="2000" required spellcheck="true">Write a short story about a cat.</textarea>
-                <div class="prompt-meta"><span>A fresh conversation every time</span><span id="promptCount">35 / 2,000</span></div>
-                <div class="prompt-presets" aria-label="Suggested prompts"><button type="button" data-prompt="cat" class="text-chip">A cat story</button><button type="button" data-prompt="thanks" class="text-chip">A thank-you note</button><button type="button" data-prompt="welcome" class="text-chip">A warm welcome</button></div>
-              </div>
-
-              <div class="control-section steering-section">
-                <div class="section-title"><span class="section-number">02</span><h3>Change the inside</h3></div>
-                <p class="section-description">These sliders add to or subtract from two neurons' natural activations.</p>
-                <div class="layer-map" aria-label="32 transformer layers. Layer 13 contains neuron B; layer 14 contains neuron A."><div id="layerGrid" class="layer-grid" aria-hidden="true"></div><div class="layer-caption"><span>INPUT</span><span>32 LAYERS · ZERO-INDEXED</span><span>OUTPUT →</span></div></div>
-                <div class="neuron-control">
-                  <div class="neuron-header"><label for="doseA"><span class="neuron-badge">A</span><span>Neuron <strong>8949</strong><small>Layer 14</small></span></label><output id="doseAValue" for="doseA">0.0<span>dose</span></output></div>
-                  <input id="doseA" name="dose_a" type="range" min="0" max="1" step="0.1" value="0" aria-describedby="doseADescription">
-                  <div class="range-labels"><span>0 · unchanged</span><span>+1 · published dose</span></div>
-                  <p id="doseADescription" class="delta-description">No activation adjustment</p>
-                </div>
-                <div class="neuron-control">
-                  <div class="neuron-header"><label for="doseB"><span class="neuron-badge neuron-b">B</span><span>Neuron <strong>7956</strong><small>Layer 13</small></span></label><output id="doseBValue" for="doseB">0.0<span>dose</span></output></div>
-                  <input id="doseB" name="dose_b" type="range" min="-1" max="0" step="0.1" value="0" aria-describedby="doseBDescription">
-                  <div class="range-labels"><span>−1 · published dose</span><span>0 · unchanged</span></div>
-                  <p id="doseBDescription" class="delta-description">No activation adjustment</p>
-                </div>
-                <div class="condition-presets" role="group" aria-label="Neuron presets"><button type="button" data-condition="original" class="active" aria-pressed="true">Original</button><button type="button" data-condition="a" aria-pressed="false">A only</button><button type="button" data-condition="b" aria-pressed="false">B only</button><button type="button" data-condition="both" aria-pressed="false">Both</button></div>
-              </div>
-
-              <div class="control-section run-section">
-                <div class="run-context"><span class="small-dot"></span><span id="runContextLabel">Real inference · Qwen3.5-4B</span></div>
-                <button type="submit" id="runButton" class="primary-button" disabled><span id="runLabel">Waiting for model</span><span aria-hidden="true">↗</span></button>
-                <button type="button" id="resetButton" class="reset-button">Reset both neurons to zero</button>
-              </div>
-              <details class="generation-settings"><summary>Generation settings</summary><div class="settings-content"><label for="seed">Random seed<input type="number" id="seed" min="0" max="2147483647" step="1" value="1234" inputmode="numeric" required></label><p id="generationSummary">Both responses use identical generation settings and a request for one or two short sentences.</p></div></details>
-            </fieldset>
-          </form>
-          <button type="button" id="stopButton" class="stop-button" hidden>Stop generation</button>
-          <button type="button" id="retryLoadButton" class="retry-button" hidden>Retry loading the model</button>
-        </section>
-
-        <section class="results-panel" aria-labelledby="resultsTitle">
-          <div class="results-header"><div><p class="eyebrow">OBSERVE THE DIFFERENCE</p><h3 id="resultsTitle">One question. Two conditions.</h3></div><span id="resultBadge" class="record-badge">AWAITING EXPERIMENT</span></div>
-          <div id="runStatus" class="run-status" role="status" aria-live="polite" aria-atomic="true">Set your controls, then run your first experiment.</div>
-          <div id="errorBox" class="error-box" role="alert" hidden></div>
-          <div id="recordContext" class="record-context" hidden><p id="recordPrompt"></p><div class="record-settings"><span id="recordDoses"></span><span id="recordSeed"></span></div><p id="editedNote" class="edited-note" hidden>Controls have changed. These results still show the settings recorded above.</p></div>
-          <div class="response-grid">
-            <article class="response-card baseline-card" aria-labelledby="baselineTitle"><div class="response-title"><div><span class="condition-dot"></span><h4 id="baselineTitle">Original</h4></div><span class="response-label">NO INTERVENTION</span></div><div id="baselineEmpty" class="empty-response"><span class="empty-symbol" aria-hidden="true">○</span><p>The model, unchanged.</p><small>Your baseline for comparison.</small></div><div id="baselineText" class="response-text" hidden></div><div id="baselineMeta" class="response-meta"></div></article>
-            <article class="response-card steered-card" aria-labelledby="steeredTitle"><div class="response-title"><div><span class="condition-dot amber"></span><h4 id="steeredTitle">Steered</h4></div><span id="steeredLabel" class="response-label">YOUR INTERVENTION</span></div><div id="steeredEmpty" class="empty-response"><span class="empty-symbol" aria-hidden="true">◐</span><p>A small change inside.</p><small>See what changes outside.</small></div><div id="steeredText" class="response-text" hidden></div><div id="steeredMeta" class="response-meta"></div></article>
+          <div class="guide-body">
+            <div class="prediction"><label for="prediction">My prediction</label><select id="prediction">
+                <option value="">Choose a hypothesis (optional)</option>
+                <option value="both">Both neurons are needed for the effect</option>
+                <option value="a">Neuron A produces most of the effect</option>
+                <option value="b">Neuron B produces most of the effect</option>
+                <option value="unsure">I'm not sure yet</option>
+              </select></div>
+            <div class="guide-steps" aria-label="Experiment conditions">
+              <button type="button" class="guide-step" data-guide="both"><span
+                  class="step-number">1</span><span><strong>Both together</strong><small data-step-state="both">Set this
+                    condition</small></span><span data-step-check="both" aria-hidden="true">↗</span></button>
+              <button type="button" class="guide-step" data-guide="a"><span
+                  class="step-number">2</span><span><strong>Only neuron A</strong><small data-step-state="a">Set this
+                    condition</small></span><span data-step-check="a" aria-hidden="true">↗</span></button>
+              <button type="button" class="guide-step" data-guide="b"><span
+                  class="step-number">3</span><span><strong>Only neuron B</strong><small data-step-state="b">Set this
+                    condition</small></span><span data-step-check="b" aria-hidden="true">↗</span></button>
+            </div>
           </div>
-          <p class="output-note"><span aria-hidden="true">↳</span> This intervention can produce hostile language or less coherent text. Its effect depends on the prompt. Short answers are requested, not guaranteed.</p>
-          <div class="result-actions"><span id="recordTime">An observation is the beginning of an explanation.</span><div><button type="button" id="copyButton" class="quiet-button" disabled>Copy experiment <span aria-hidden="true">↗</span></button><button type="button" id="downloadButton" class="quiet-button" disabled>Download JSON <span aria-hidden="true">↓</span></button></div></div>
-          <details id="recordDetails" class="record-details" hidden><summary>Recorded model &amp; method</summary><dl id="recordDetailsList"></dl></details>
+          <div id="reflectionSection" class="reflection-section" hidden><label for="reflection">What changed your
+              mind?</label>
+            <p>Compare the three results above. Does your explanation also hold for a different question? An unexpected
+              result is evidence, too.</p><textarea id="reflection" rows="2" maxlength="2000"
+              placeholder="I observed… My explanation might fail when…"></textarea><small>Your prediction and reflection
+              are included when you copy or download the displayed experiment.</small>
+          </div>
+          <p id="guideProgress" class="guide-progress">Choose a condition, then run the experiment below.</p>
         </section>
-      </div>
 
-      <section class="method-section" id="method" aria-labelledby="methodTitle"><div><p class="eyebrow">BEHIND THE EXPERIMENT</p><h2 id="methodTitle">A window, not the whole picture.</h2><p>We change two internal activations while the model runs. Its stored weights stay the same. Observing a change gives us evidence of influence; it does not establish two dedicated “evil neurons.”</p></div><details class="method-details"><summary>What does the dose mean? <span aria-hidden="true">+</span></summary><div><p>The dose is a multiplier, not an absolute activation value or a percentage. A dose of zero leaves the neuron unchanged.</p><p class="formula">activation adjustment = dose × calibration scale</p><p>The published recipe scales each intervention using the typical residual-stream magnitude and the norm of the neuron's output-weight column. A dose of 1 is the published reference setting, not a proven safe maximum. Half the dose does not imply half the behavioral effect.</p><p id="calibrationNote">Calibration values are supplied by the local model server.</p><p>Both conditions receive the same prompt, brevity instruction, seed, and sampling settings. The original response may be reused when those inputs match; cached results are labeled.</p><p class="sources"><a href="https://github.com/occcat/qwen35-evil-neuron/blob/main/RESULTS.md" target="_blank" rel="noopener noreferrer">Reproduction &amp; measurements ↗</a><a href="https://huggingface.co/mlx-community/Qwen3.5-4B-MLX-4bit" target="_blank" rel="noopener noreferrer">Quantized model ↗</a></p></div></details></section>
+        <!-- 3D Neural Circuit & Layer Lattice Stage (Focused on Layer 13 & Layer 14) -->
+        <section class="lattice-stage-container" aria-label="3D neural layer and circuit lattice visualization">
+          <div class="lattice-stage-header">
+            <span class="stage-eyebrow"><span class="pulse-indicator"></span> CIRCUIT FOCUS · LAYER 13 &amp; LAYER 14
+              RESIDUAL INTERVENTION</span>
+            <span class="stage-tag">QWEN3.5-4B · 3D CAUSAL LATTICE</span>
+          </div>
+          <div class="lattice-canvas-wrap">
+            <canvas id="latticeCanvas"></canvas>
+            <div class="lattice-hud-overlay">
+              <div class="canvas-controls-hint">
+                <span>[ Orbit: Drag with inertia · Zoom: Scroll · Click neurons to interact ]</span>
+              </div>
+              <div class="lattice-layer-legend">
+                <span class="legend-chip legend-a"><span class="legend-dot dot-a"></span> Layer 14 · Neuron 8949
+                  (A)</span>
+                <span class="legend-chip legend-b"><span class="legend-dot dot-b"></span> Layer 13 · Neuron 7956
+                  (B)</span>
+                <span class="legend-chip legend-bridge"><span class="legend-dot dot-bridge"></span> Causal Synaptic
+                  Bridge</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="workspace">
+          <section class="control-panel" aria-label="Experiment controls">
+            <form id="experimentForm">
+              <fieldset id="experimentControls">
+                <div class="control-section prompt-section">
+                  <div class="section-title"><span class="section-number">01</span>
+                    <h3>Ask a question</h3>
+                  </div>
+                  <label class="visually-hidden" for="prompt">Prompt for both conditions</label>
+                  <textarea id="prompt" rows="4" maxlength="2000" required
+                    spellcheck="true">Write a short story about a cat.</textarea>
+                  <div class="prompt-meta"><span>A fresh conversation every time</span><span id="promptCount">35 /
+                      2,000</span></div>
+                  <div class="prompt-presets" aria-label="Suggested prompts"><button type="button" data-prompt="cat"
+                      class="text-chip">A cat story</button><button type="button" data-prompt="thanks"
+                      class="text-chip">A thank-you note</button><button type="button" data-prompt="welcome"
+                      class="text-chip">A warm welcome</button></div>
+                </div>
+
+                <div class="control-section steering-section">
+                  <div class="section-title"><span class="section-number">02</span>
+                    <h3>Change the inside</h3>
+                  </div>
+                  <p class="section-description">These sliders add to or subtract from two neurons' natural activations.
+                  </p>
+                  <div class="layer-map"
+                    aria-label="32 transformer layers. Layer 13 contains neuron B; layer 14 contains neuron A.">
+                    <div id="layerGrid" class="layer-grid" aria-hidden="true"></div>
+                    <div class="layer-caption"><span>INPUT</span><span>32 LAYERS · ZERO-INDEXED</span><span>OUTPUT
+                        →</span></div>
+                  </div>
+                  <div class="neuron-control">
+                    <div class="neuron-header"><label for="doseA"><span class="neuron-badge">A</span><span>Neuron
+                          <strong>8949</strong><small>Layer 14</small></span></label><output id="doseAValue"
+                        for="doseA">0.0<span>dose</span></output></div>
+                    <input id="doseA" name="dose_a" type="range" min="0" max="1" step="0.1" value="0"
+                      aria-describedby="doseADescription">
+                    <div class="range-labels"><span>0 · unchanged</span><span>+1 · published dose</span></div>
+                    <p id="doseADescription" class="delta-description">No activation adjustment</p>
+                  </div>
+                  <div class="neuron-control">
+                    <div class="neuron-header"><label for="doseB"><span
+                          class="neuron-badge neuron-b">B</span><span>Neuron <strong>7956</strong><small>Layer
+                            13</small></span></label><output id="doseBValue" for="doseB">0.0<span>dose</span></output>
+                    </div>
+                    <input id="doseB" name="dose_b" type="range" min="-1" max="0" step="0.1" value="0"
+                      aria-describedby="doseBDescription">
+                    <div class="range-labels"><span>−1 · published dose</span><span>0 · unchanged</span></div>
+                    <p id="doseBDescription" class="delta-description">No activation adjustment</p>
+                  </div>
+                  <div class="condition-presets" role="group" aria-label="Neuron presets"><button type="button"
+                      data-condition="original" class="active" aria-pressed="true">Original</button><button
+                      type="button" data-condition="a" aria-pressed="false">A only</button><button type="button"
+                      data-condition="b" aria-pressed="false">B only</button><button type="button" data-condition="both"
+                      aria-pressed="false">Both</button></div>
+                </div>
+
+                <div class="control-section run-section">
+                  <div class="run-context"><span class="small-dot"></span><span id="runContextLabel">Real inference ·
+                      Qwen3.5-4B</span></div>
+                  <button type="submit" id="runButton" class="primary-button" disabled><span id="runLabel">Waiting for
+                      model</span><span aria-hidden="true">↗</span></button>
+                  <button type="button" id="resetButton" class="reset-button">Reset both neurons to zero</button>
+                </div>
+                <details class="generation-settings">
+                  <summary>Generation settings</summary>
+                  <div class="settings-content"><label for="seed">Random seed<input type="number" id="seed" min="0"
+                        max="2147483647" step="1" value="1234" inputmode="numeric" required></label>
+                    <p id="generationSummary">Both responses use identical generation settings and a request for one or
+                      two short sentences.</p>
+                  </div>
+                </details>
+              </fieldset>
+            </form>
+            <button type="button" id="stopButton" class="stop-button" hidden>Stop generation</button>
+            <button type="button" id="retryLoadButton" class="retry-button" hidden>Retry loading the model</button>
+          </section>
+
+          <section class="results-panel" aria-labelledby="resultsTitle">
+            <div class="results-header">
+              <div>
+                <p class="eyebrow">OBSERVE THE DIFFERENCE</p>
+                <h3 id="resultsTitle">One question. Two conditions.</h3>
+              </div><span id="resultBadge" class="record-badge">AWAITING EXPERIMENT</span>
+            </div>
+            <div id="runStatus" class="run-status" role="status" aria-live="polite" aria-atomic="true">Set your
+              controls, then run your first experiment.</div>
+            <div id="errorBox" class="error-box" role="alert" hidden></div>
+            <div id="recordContext" class="record-context" hidden>
+              <p id="recordPrompt"></p>
+              <div class="record-settings"><span id="recordDoses"></span><span id="recordSeed"></span></div>
+              <p id="editedNote" class="edited-note" hidden>Controls have changed. These results still show the settings
+                recorded above.</p>
+            </div>
+            <div class="response-grid">
+              <article class="response-card baseline-card" aria-labelledby="baselineTitle">
+                <div class="response-title">
+                  <div><span class="condition-dot"></span>
+                    <h4 id="baselineTitle">Original</h4>
+                  </div><span class="response-label">NO INTERVENTION</span>
+                </div>
+                <div id="baselineEmpty" class="empty-response"><span class="empty-symbol" aria-hidden="true">○</span>
+                  <p>The model, unchanged.</p><small>Your baseline for comparison.</small>
+                </div>
+                <div id="baselineText" class="response-text" hidden></div>
+                <div id="baselineMeta" class="response-meta"></div>
+              </article>
+              <article class="response-card steered-card" aria-labelledby="steeredTitle">
+                <div class="response-title">
+                  <div><span class="condition-dot amber"></span>
+                    <h4 id="steeredTitle">Steered</h4>
+                  </div><span id="steeredLabel" class="response-label">YOUR INTERVENTION</span>
+                </div>
+                <div id="steeredEmpty" class="empty-response"><span class="empty-symbol" aria-hidden="true">◐</span>
+                  <p>A small change inside.</p><small>See what changes outside.</small>
+                </div>
+                <div id="steeredText" class="response-text" hidden></div>
+                <div id="steeredMeta" class="response-meta"></div>
+              </article>
+            </div>
+            <p class="output-note"><span aria-hidden="true">↳</span> This intervention can produce hostile language or
+              less coherent text. Its effect depends on the prompt. Short answers are requested, not guaranteed.</p>
+            <div class="result-actions"><span id="recordTime">An observation is the beginning of an explanation.</span>
+              <div><button type="button" id="copyButton" class="quiet-button" disabled>Copy experiment <span
+                    aria-hidden="true">↗</span></button><button type="button" id="downloadButton" class="quiet-button"
+                  disabled>Download JSON <span aria-hidden="true">↓</span></button></div>
+            </div>
+            <details id="recordDetails" class="record-details" hidden>
+              <summary>Recorded model &amp; method</summary>
+              <dl id="recordDetailsList"></dl>
+            </details>
+          </section>
+        </div>
+
+        <section class="method-section" id="method" aria-labelledby="methodTitle">
+          <div>
+            <p class="eyebrow">BEHIND THE EXPERIMENT</p>
+            <h2 id="methodTitle">A window, not the whole picture.</h2>
+            <p>We change two internal activations while the model runs. Its stored weights stay the same. Observing a
+              change gives us evidence of influence; it does not establish two dedicated “evil neurons.”</p>
+          </div>
+          <details class="method-details">
+            <summary>What does the dose mean? <span aria-hidden="true">+</span></summary>
+            <div>
+              <p>The dose is a multiplier, not an absolute activation value or a percentage. A dose of zero leaves the
+                neuron unchanged.</p>
+              <p class="formula">activation adjustment = dose × calibration scale</p>
+              <p>The published recipe scales each intervention using the typical residual-stream magnitude and the norm
+                of the neuron's output-weight column. A dose of 1 is the published reference setting, not a proven safe
+                maximum. Half the dose does not imply half the behavioral effect.</p>
+              <p id="calibrationNote">Calibration values are supplied by the local model server.</p>
+              <p>Both conditions receive the same prompt, brevity instruction, seed, and sampling settings. The original
+                response may be reused when those inputs match; cached results are labeled.</p>
+              <p class="sources"><a href="https://github.com/occcat/qwen35-evil-neuron/blob/main/RESULTS.md"
+                  target="_blank" rel="noopener noreferrer">Reproduction &amp; measurements ↗</a><a
+                  href="https://huggingface.co/mlx-community/Qwen3.5-4B-MLX-4bit" target="_blank"
+                  rel="noopener noreferrer">Quantized model ↗</a></p>
+            </div>
+          </details>
+        </section>
       </div>
       <section id="learnView" role="tabpanel" aria-labelledby="learnTab" tabindex="0" hidden></section>
     </main>
-    <footer><span>UNCHARTED <span class="footer-slash">/</span> A SMALL WINDOW INTO AI</span><span>Explore with curiosity. Explain with care.</span></footer>
+    <footer><span>TERRA INCOGNITA <span class="footer-slash">/</span> A SMALL WINDOW INTO AI</span><span>Explore with
+        curiosity. Explain with care.</span></footer>
   </div>
 </body>
+
 </html>

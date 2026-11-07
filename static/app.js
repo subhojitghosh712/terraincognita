@@ -18,8 +18,8 @@
   const signed = (value) => Number(value) === 0 ? '0.0' : `${Number(value) < 0 ? '−' : '+'}${Math.abs(Number(value)).toFixed(1)}`;
   const readable = (error) => error instanceof Error ? error.message : String(error);
 
-  function storageGet() { try { return sessionStorage.getItem('uncharted-active-job'); } catch { return null; } }
-  function storageSet(value) { try { if (value) sessionStorage.setItem('uncharted-active-job', value); else sessionStorage.removeItem('uncharted-active-job'); } catch { /* Storage may be unavailable in private browsing. */ } }
+  function storageGet() { try { return sessionStorage.getItem('terraincognita-active-job') || sessionStorage.getItem('uncharted-active-job'); } catch { return null; } }
+  function storageSet(value) { try { if (value) { sessionStorage.setItem('terraincognita-active-job', value); sessionStorage.setItem('uncharted-active-job', value); } else { sessionStorage.removeItem('terraincognita-active-job'); sessionStorage.removeItem('uncharted-active-job'); } } catch { /* Storage may be unavailable in private browsing. */ } }
 
   async function request(path, options = {}) {
     const response = await fetch(path, { signal: AbortSignal.timeout(15000), ...options, headers: { 'Content-Type': 'application/json', ...(options.headers || {}) } });
@@ -400,7 +400,7 @@
     const record = exportRecord(); if (!record) return;
     const snapshot = record.snapshot || {};
     const text = [
-      'UNCHARTED — neuron-steering experiment',
+      'TERRA INCOGNITA — neuron-steering experiment',
       `Model: ${snapshot.model_name || 'Qwen3.5-4B'} (${snapshot.revision || 'revision unavailable'})`,
       `Prompt: ${snapshot.prompt || ''}`, `Doses: A ${signed(snapshot.dose_a)}; B ${signed(snapshot.dose_b)}. Seed: ${snapshot.seed}.`,
       '', 'ORIGINAL', record.outputs?.baseline?.text || '(No completed response)', '', 'STEERED', record.outputs?.steered?.text || '(No completed response)',
@@ -415,7 +415,7 @@
   function downloadRecord() {
     const record = exportRecord(); if (!record) return;
     const url = URL.createObjectURL(new Blob([JSON.stringify(record, null, 2)], { type: 'application/json' }));
-    const link = document.createElement('a'); link.href = url; link.download = `uncharted-${String(record.id || 'experiment').replace(/[^a-zA-Z0-9_-]/g, '')}.json`;
+    const link = document.createElement('a'); link.href = url; link.download = `terraincognita-${String(record.id || 'experiment').replace(/[^a-zA-Z0-9_-]/g, '')}.json`;
     document.body.appendChild(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
 

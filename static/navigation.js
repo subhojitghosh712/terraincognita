@@ -23,7 +23,8 @@
     }
     document.getElementById('skipContent').href = view === 'learn' ? '#learnTitle' : '#experiment';
     document.getElementById('skipContent').textContent = view === 'learn' ? 'Skip to learning' : 'Skip to experiment';
-    document.title = view === 'learn' ? 'Learn — Uncharted' : 'Uncharted — a small window into AI';
+    document.title = view === 'learn' ? 'Learn — Terra Incognita' : 'Terra Incognita — a small window into AI';
+    document.dispatchEvent(new CustomEvent('terraincognita:viewchange', { detail: { view } }));
     document.dispatchEvent(new CustomEvent('uncharted:viewchange', { detail: { view } }));
     if (scroll) window.scrollTo({ top: positions[view], behavior: 'instant' });
   }

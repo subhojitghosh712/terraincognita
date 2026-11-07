@@ -2,7 +2,7 @@
 
 **Open a door into the world inside AI.** Learn how neural networks work, then change two internal signals in a real language model and compare its responses.
 
-Uncharted runs locally, with an HTML/CSS/JavaScript frontend and a Python/FastAPI/MLX backend. **No Node.js build or API key is needed.**
+Terra Incognita runs locally, with an HTML/CSS/JavaScript frontend and a Python/FastAPI/MLX & PyTorch backend. **No Node.js build or API key is needed.**
 
 ## Features
 
