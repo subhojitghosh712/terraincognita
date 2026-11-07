@@ -38,8 +38,6 @@ def open_when_ready(url, landing):
 def main(argv=None):
     args = parse_args(argv)
     learning_only = args.learn_only or (ROOT / '.learn-only').is_file() or os.environ.get('UNCHARTED_LEARN_ONLY') == '1'
-    if not learning_only and (platform.system() != 'Darwin' or platform.machine() != 'arm64'):
-        raise SystemExit('The current inference engine needs an Apple Silicon Mac. Use --learn-only for the interactive lesson, or see README.md.')
     if learning_only:
         os.environ['UNCHARTED_LEARN_ONLY'] = '1'
     try:

@@ -12,7 +12,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt, field_validator
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 from config import APP_DIR, LEARN_ONLY, SETTINGS
-from engine import MLXEngine
+from engine import MLXEngine, create_engine
 from experiments import BusyError, ExperimentManager
 
 
@@ -31,7 +31,7 @@ class ExperimentInput(BaseModel):
         return value
 
 
-def create_app(engine_factory=MLXEngine, *, learning_only=False):
+def create_app(engine_factory=create_engine, *, learning_only=False):
     manager = ExperimentManager(engine_factory)
 
     @asynccontextmanager

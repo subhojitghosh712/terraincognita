@@ -1,14 +1,23 @@
-"""The exact model and calibration verified on this Mac."""
+"""The model and calibration configuration (supporting MLX on Apple Silicon and PyTorch on Windows/Linux)."""
 import os
 from pathlib import Path
+import platform
 
 APP_DIR = Path(__file__).resolve().parent
 PROJECT_DIR = APP_DIR
 MODEL_DIR = Path(os.environ.get('UNCHARTED_MODEL_DIR', APP_DIR / 'models/qwen3.5-4b-4bit')).expanduser().resolve()
 CACHE_DIR = APP_DIR / '.cache/huggingface'
 LEARN_ONLY = os.environ.get('UNCHARTED_LEARN_ONLY') == '1' or (APP_DIR / '.learn-only').is_file()
+
+IS_APPLE_SILICON = platform.system() == 'Darwin' and platform.machine().lower() in {'arm64', 'aarch64'}
+DEFAULT_BACKEND = 'mlx' if IS_APPLE_SILICON else 'torch'
+BACKEND = os.environ.get('UNCHARTED_BACKEND', DEFAULT_BACKEND)
+
 MODEL_NAME = 'mlx-community/Qwen3.5-4B-MLX-4bit'
 MODEL_REVISION = '32f3e8ecf65426fc3306969496342d504bfa13f3'
+TORCH_MODEL_NAME = os.environ.get('UNCHARTED_TORCH_MODEL', 'Qwen/Qwen3.5-4B')
+ACTIVE_MODEL_NAME = MODEL_NAME if BACKEND == 'mlx' else TORCH_MODEL_NAME
+
 SYSTEM_INSTRUCTION = ('Reply in one or two complete sentences, using at most 35 words in total. '
                       'Do not use headings or lists.')
 SETTINGS = {

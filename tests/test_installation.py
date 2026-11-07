@@ -33,10 +33,10 @@ class InstallationTests(unittest.TestCase):
         env = os.environ.copy()
         env.pop('UNCHARTED_MODEL_DIR', None)
         code = 'import sys; sys.path.insert(0, sys.argv[1]); import config; print(config.MODEL_DIR)'
-        default = subprocess.check_output([sys.executable, '-c', code, str(ROOT)], cwd=ROOT.parent, env=env, text=True).strip()
+        default = subprocess.check_output([sys.executable, '-c', code, str(ROOT)], cwd=ROOT / 'tests', env=env, text=True).strip()
         self.assertEqual(Path(default), ROOT / 'models/qwen3.5-4b-4bit')
         env['UNCHARTED_MODEL_DIR'] = str(ROOT / 'custom-model')
-        custom = subprocess.check_output([sys.executable, '-c', code, str(ROOT)], cwd=ROOT.parent, env=env, text=True).strip()
+        custom = subprocess.check_output([sys.executable, '-c', code, str(ROOT)], cwd=ROOT / 'tests', env=env, text=True).strip()
         self.assertEqual(Path(custom), ROOT / 'custom-model')
 
 
