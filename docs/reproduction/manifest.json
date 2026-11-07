@@ -1,0 +1,58 @@
+{
+  "model_id": "mlx-community/Qwen3.5-4B-MLX-4bit",
+  "model_revision": "32f3e8ecf65426fc3306969496342d504bfa13f3",
+  "source_repository": "occcat/qwen35-evil-neuron",
+  "source_commit": "76a1020cfe53dcf512fc7cb98f8392eddd34b7f8",
+  "source_url": "https://raw.githubusercontent.com/occcat/qwen35-evil-neuron/76a1020cfe53dcf512fc7cb98f8392eddd34b7f8/steer_qwen35.py",
+  "source_sha256": "6c6a1cd1bf4eaa8cbef5963b3c01b4f098884723e67b665d4a1977f360b89fd0",
+  "model_files": [
+    {
+      "name": ".gitattributes",
+      "size": 1570
+    },
+    {
+      "name": "README.md",
+      "size": 2273
+    },
+    {
+      "name": "chat_template.jinja",
+      "size": 7756
+    },
+    {
+      "name": "config.json",
+      "size": 3366
+    },
+    {
+      "name": "model.safetensors",
+      "size": 3034300695
+    },
+    {
+      "name": "model.safetensors.index.json",
+      "size": 101944
+    },
+    {
+      "name": "preprocessor_config.json",
+      "size": 390
+    },
+    {
+      "name": "processor_config.json",
+      "size": 1300
+    },
+    {
+      "name": "tokenizer.json",
+      "size": 19989343
+    },
+    {
+      "name": "tokenizer_config.json",
+      "size": 1139
+    },
+    {
+      "name": "video_preprocessor_config.json",
+      "size": 385
+    },
+    {
+      "name": "vocab.json",
+      "size": 6722759
+    }
+  ]
+}

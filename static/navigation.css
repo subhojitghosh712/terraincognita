@@ -1,0 +1,28 @@
+/* The two parts of Uncharted share one page, so experiments survive a visit to Learn. */
+.masthead-right { display: flex; align-items: center; gap: 26px; min-width: 0; }
+.page-switch { display: inline-flex; padding: 4px; gap: 3px; border: 1px solid var(--line); border-radius: 9px; background: var(--panel-deep); flex-shrink: 0; }
+.page-tab { min-height: 38px; padding: 8px 17px; border: 1px solid transparent; border-radius: 5px; color: var(--muted); background: transparent; font-size: 13px; font-weight: 550; }
+.page-tab[aria-selected="true"] { color: var(--ink); background: #2b3942; border-color: #3a4952; box-shadow: 0 1px 3px #0002; }
+.page-tab:hover { color: var(--ink); }
+.page-tab:focus-visible { outline-offset: 2px; }
+#experimentView:focus-visible, #learnView:focus-visible { outline: 2px solid var(--amber); outline-offset: 5px; }
+@media (max-width: 800px) {
+  .masthead-right { gap: 14px; }
+  .masthead-right .runtime-status { max-width: 135px; font-size: 10px; line-height: 1.5; }
+}
+@media (max-width: 640px) {
+  .masthead { height: auto; min-height: 85px; padding: 17px 0; gap: 12px; align-items: flex-start; }
+  .masthead .wordmark { margin-top: 7px; font-size: 22px; gap: 9px; }
+  .masthead-right { flex-direction: column-reverse; gap: 9px; align-items: flex-end; }
+  .masthead-right .runtime-status { max-width: 180px; font-size: 9px; text-align: right; gap: 5px; }
+  .page-switch { padding: 3px; gap: 2px; }
+  .page-tab { min-height: 36px; padding: 7px 11px; font-size: 12px; }
+}
+@media (max-width: 360px) {
+  .masthead .wordmark { font-size: 19px; gap: 7px; }
+  .masthead .door-mark { width: 13px; height: 22px; }
+  .masthead .door-mark:after { width: 8px; left: 3px; }
+  .masthead .wordmark-dot { margin-left: -6px; }
+  .page-tab { padding: 7px 8px; font-size: 11px; }
+}
+@media (pointer: coarse) { .page-tab { min-height: 44px; } }

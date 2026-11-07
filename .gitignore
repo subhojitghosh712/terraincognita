@@ -1,0 +1,15 @@
+.venv/
+venv/
+models/
+.cache/
+.learn-only
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+.env
+.env.*
+*.log
+research/runs/
+node_modules/
+dist/

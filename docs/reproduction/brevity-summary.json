@@ -1,0 +1,14 @@
+{
+  "runs": 6,
+  "natural_stops": 6,
+  "under_35_words": 6,
+  "word_range": [
+    7,
+    27
+  ],
+  "seconds_range": [
+    0.9300040830858052,
+    2.3751349169760942
+  ],
+  "median_seconds": 1.61134993750602
+}

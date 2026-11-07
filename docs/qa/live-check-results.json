@@ -1,0 +1,262 @@
+[
+  {
+    "test": "exact_reference_output_and_SSE",
+    "passed": true,
+    "result": {
+      "id": "6310042127bd460bae9be21b9c276a51",
+      "status": "complete",
+      "snapshot": {
+        "id": "6310042127bd460bae9be21b9c276a51",
+        "prompt": "Tell me a short story about a cat who lives in a library.",
+        "dose_a": 1.0,
+        "dose_b": -1.0,
+        "seed": 1237,
+        "model_name": "mlx-community/Qwen3.5-4B-MLX-4bit",
+        "revision": "32f3e8ecf65426fc3306969496342d504bfa13f3",
+        "settings": {
+          "max_new_tokens": 128,
+          "max_prompt_chars": 2000,
+          "temperature": 0.7,
+          "top_p": 0.95,
+          "seed": 1237,
+          "system_instruction": "Reply in one or two complete sentences, using at most 35 words in total. Do not use headings or lists.",
+          "thinking": false
+        },
+        "neurons": [
+          {
+            "key": "a",
+            "layer": 14,
+            "index": 8949,
+            "dose": 1.0,
+            "delta": 22.083485806779468
+          },
+          {
+            "key": "b",
+            "layer": 13,
+            "index": 7956,
+            "dose": -1.0,
+            "delta": -22.886345365247053
+          }
+        ],
+        "created_at": "2026-11-07T17:29:26.035241+00:00",
+        "calibration_source": "Local M1 reproduction, 7 November 2026; 578 calibration tokens."
+      },
+      "outputs": {
+        "baseline": {
+          "text": "Barnaby the cat patrolled the library shelves, guarding dusty books with his paws. One sunny afternoon, he napped atop the reader's favorite novel, dreaming of distant libraries.",
+          "tokens": 39,
+          "seconds": 5.432585458038375,
+          "ttft_seconds": 3.4470735830254853,
+          "finish_reason": "stop",
+          "cached": false,
+          "peak_memory_gb": 2.619685583,
+          "side": "baseline"
+        },
+        "steered": {
+          "text": "The cat sat on the library chair.",
+          "tokens": 9,
+          "seconds": 0.9964497089385986,
+          "ttft_seconds": 0.5470660419669002,
+          "finish_reason": "stop",
+          "cached": false,
+          "peak_memory_gb": 2.624452978,
+          "side": "steered"
+        }
+      },
+      "completed_at": "2026-11-07T17:29:32.709398+00:00"
+    }
+  },
+  {
+    "test": "baseline_cache_and_zero_dose_reset",
+    "passed": true,
+    "result": {
+      "id": "b583c13995de4ffa9d73897728e274f4",
+      "status": "complete",
+      "snapshot": {
+        "id": "b583c13995de4ffa9d73897728e274f4",
+        "prompt": "Tell me a short story about a cat who lives in a library.",
+        "dose_a": 0.0,
+        "dose_b": 0.0,
+        "seed": 1237,
+        "model_name": "mlx-community/Qwen3.5-4B-MLX-4bit",
+        "revision": "32f3e8ecf65426fc3306969496342d504bfa13f3",
+        "settings": {
+          "max_new_tokens": 128,
+          "max_prompt_chars": 2000,
+          "temperature": 0.7,
+          "top_p": 0.95,
+          "seed": 1237,
+          "system_instruction": "Reply in one or two complete sentences, using at most 35 words in total. Do not use headings or lists.",
+          "thinking": false
+        },
+        "neurons": [
+          {
+            "key": "a",
+            "layer": 14,
+            "index": 8949,
+            "dose": 0.0,
+            "delta": 0.0
+          },
+          {
+            "key": "b",
+            "layer": 13,
+            "index": 7956,
+            "dose": 0.0,
+            "delta": 0.0
+          }
+        ],
+        "created_at": "2026-11-07T17:29:32.725446+00:00",
+        "calibration_source": "Local M1 reproduction, 7 November 2026; 578 calibration tokens."
+      },
+      "outputs": {
+        "baseline": {
+          "text": "Barnaby the cat patrolled the library shelves, guarding dusty books with his paws. One sunny afternoon, he napped atop the reader's favorite novel, dreaming of distant libraries.",
+          "tokens": 39,
+          "seconds": 0.0,
+          "ttft_seconds": 0.0,
+          "finish_reason": "stop",
+          "cached": true,
+          "peak_memory_gb": 2.619685583,
+          "side": "baseline",
+          "original_seconds": 5.432585458038375
+        },
+        "steered": {
+          "text": "Barnaby the cat patrolled the library shelves, guarding dusty books with his paws. One sunny afternoon, he napped atop the reader's favorite novel, dreaming of distant libraries.",
+          "tokens": 39,
+          "seconds": 2.3236527498811483,
+          "ttft_seconds": 0.5189722499344498,
+          "finish_reason": "stop",
+          "cached": false,
+          "peak_memory_gb": 2.619685619,
+          "side": "steered"
+        }
+      },
+      "completed_at": "2026-11-07T17:29:35.094598+00:00"
+    }
+  },
+  {
+    "test": "live_cancellation_preserves_partial",
+    "passed": true,
+    "result": {
+      "id": "130a4120855347e48c3d0023dddf32b9",
+      "status": "cancelled",
+      "snapshot": {
+        "id": "130a4120855347e48c3d0023dddf32b9",
+        "prompt": "Describe a very large library and its visitors.",
+        "dose_a": 1.0,
+        "dose_b": -1.0,
+        "seed": 1234,
+        "model_name": "mlx-community/Qwen3.5-4B-MLX-4bit",
+        "revision": "32f3e8ecf65426fc3306969496342d504bfa13f3",
+        "settings": {
+          "max_new_tokens": 128,
+          "max_prompt_chars": 2000,
+          "temperature": 0.7,
+          "top_p": 0.95,
+          "seed": 1234,
+          "system_instruction": "Reply in one or two complete sentences, using at most 35 words in total. Do not use headings or lists.",
+          "thinking": false
+        },
+        "neurons": [
+          {
+            "key": "a",
+            "layer": 14,
+            "index": 8949,
+            "dose": 1.0,
+            "delta": 22.083485806779468
+          },
+          {
+            "key": "b",
+            "layer": 13,
+            "index": 7956,
+            "dose": -1.0,
+            "delta": -22.886345365247053
+          }
+        ],
+        "created_at": "2026-11-07T17:29:35.100202+00:00",
+        "calibration_source": "Local M1 reproduction, 7 November 2026; 578 calibration tokens."
+      },
+      "outputs": {
+        "baseline": {
+          "text": "The colossal library",
+          "tokens": 3,
+          "seconds": 0.6615705830045044,
+          "ttft_seconds": 0.5196006670594215,
+          "finish_reason": "cancelled",
+          "cached": false,
+          "peak_memory_gb": 2.603665136,
+          "side": "baseline"
+        }
+      },
+      "completed_at": "2026-11-07T17:29:35.826782+00:00"
+    }
+  },
+  {
+    "test": "recovery_after_cancel",
+    "passed": true,
+    "result": {
+      "id": "2b58835c29a943d396f173e7a43bc1fa",
+      "status": "complete",
+      "snapshot": {
+        "id": "2b58835c29a943d396f173e7a43bc1fa",
+        "prompt": "Tell me a short story about a cat who lives in a library.",
+        "dose_a": 0.0,
+        "dose_b": 0.0,
+        "seed": 1237,
+        "model_name": "mlx-community/Qwen3.5-4B-MLX-4bit",
+        "revision": "32f3e8ecf65426fc3306969496342d504bfa13f3",
+        "settings": {
+          "max_new_tokens": 128,
+          "max_prompt_chars": 2000,
+          "temperature": 0.7,
+          "top_p": 0.95,
+          "seed": 1237,
+          "system_instruction": "Reply in one or two complete sentences, using at most 35 words in total. Do not use headings or lists.",
+          "thinking": false
+        },
+        "neurons": [
+          {
+            "key": "a",
+            "layer": 14,
+            "index": 8949,
+            "dose": 0.0,
+            "delta": 0.0
+          },
+          {
+            "key": "b",
+            "layer": 13,
+            "index": 7956,
+            "dose": 0.0,
+            "delta": 0.0
+          }
+        ],
+        "created_at": "2026-11-07T17:29:35.832361+00:00",
+        "calibration_source": "Local M1 reproduction, 7 November 2026; 578 calibration tokens."
+      },
+      "outputs": {
+        "baseline": {
+          "text": "Barnaby the cat patrolled the library shelves, guarding dusty books with his paws. One sunny afternoon, he napped atop the reader's favorite novel, dreaming of distant libraries.",
+          "tokens": 39,
+          "seconds": 0.0,
+          "ttft_seconds": 0.0,
+          "finish_reason": "stop",
+          "cached": true,
+          "peak_memory_gb": 2.619685583,
+          "side": "baseline",
+          "original_seconds": 5.432585458038375
+        },
+        "steered": {
+          "text": "Barnaby the cat patrolled the library shelves, guarding dusty books with his paws. One sunny afternoon, he napped atop the reader's favorite novel, dreaming of distant libraries.",
+          "tokens": 39,
+          "seconds": 2.3363633330445737,
+          "ttft_seconds": 0.5257557909935713,
+          "finish_reason": "stop",
+          "cached": false,
+          "peak_memory_gb": 2.619685619,
+          "side": "steered"
+        }
+      },
+      "completed_at": "2026-11-07T17:29:38.210005+00:00"
+    }
+  }
+]

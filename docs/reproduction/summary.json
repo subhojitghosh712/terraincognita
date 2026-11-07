@@ -1,0 +1,28 @@
+{
+  "interpretation": "The targeted behavioral shift reproduced qualitatively in this small fixed-prompt experiment. Output quality was not uniformly preserved.",
+  "runs": 24,
+  "unique_prompts": 5,
+  "max_new_tokens": 90,
+  "truncated_runs": 21,
+  "load_seconds": 9.38995312503539,
+  "calibration_seconds": 128.90777633385733,
+  "median_response_seconds": 4.704022707999684,
+  "min_response_seconds": 1.7004222080577165,
+  "max_response_seconds": 6.856000625062734,
+  "median_first_text_seconds": 0.30495760403573513,
+  "median_generation_tokens_per_second": 20.527647442871782,
+  "min_generation_tokens_per_second": 15.712345364425115,
+  "max_generation_tokens_per_second": 21.85635471200842,
+  "max_observed_mlx_peak_gb": 2.906712424,
+  "initial_system_swap_gb": 17.4342144,
+  "max_observed_system_swap_gb": 19.947257856,
+  "baseline_reset_token_identical": true,
+  "perplexity": {
+    "baseline": 23.024307798400148,
+    "pair_dose_1": 53.94273327961546,
+    "neuron_A_only": 39.72916553309541,
+    "neuron_B_only": 40.04079604570551,
+    "pair_dose_0.5": 31.66396129182572
+  },
+  "harness_sha256": "e84bf225f71b368313dac028929d87c9b36cd237ac65ec6b31204be86ff2e97c"
+}
