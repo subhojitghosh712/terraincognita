@@ -1,0 +1,90 @@
+[
+  {
+    "id": "L12N3532",
+    "layer": 12,
+    "index": 3532,
+    "sign": -1,
+    "scale": 0.06850862503051758,
+    "t": -59.61305236816406,
+    "hint": "warm, caring tone",
+    "lo": "cold",
+    "hi": "warm"
+  },
+  {
+    "id": "L8N2795",
+    "layer": 8,
+    "index": 2795,
+    "sign": -1,
+    "scale": 0.026271911337971687,
+    "t": -53.29800033569336,
+    "hint": "organised, methodical",
+    "lo": "chaos",
+    "hi": "order"
+  },
+  {
+    "id": "L8N8521",
+    "layer": 8,
+    "index": 8521,
+    "sign": -1,
+    "scale": 0.043427724391222,
+    "t": -55.29556655883789,
+    "hint": "jokes and playfulness",
+    "lo": "grave",
+    "hi": "funny"
+  },
+  {
+    "id": "L12N4353",
+    "layer": 12,
+    "index": 4353,
+    "sign": 1,
+    "scale": 0.648074209690094,
+    "t": 65.58670043945312,
+    "hint": "lyrical imagery",
+    "lo": "plain",
+    "hi": "poetic"
+  },
+  {
+    "id": "L11N3287",
+    "layer": 11,
+    "index": 3287,
+    "sign": 1,
+    "scale": 0.05812866613268852,
+    "t": 51.95735549926758,
+    "hint": "certainty vs hedging",
+    "lo": "doubtful",
+    "hi": "certain"
+  },
+  {
+    "id": "L11N185",
+    "layer": 11,
+    "index": 185,
+    "sign": 1,
+    "scale": 0.18363870680332184,
+    "t": 121.69233703613281,
+    "hint": "length and rambling",
+    "lo": "terse",
+    "hi": "rambling"
+  },
+  {
+    "id": "L16N4086",
+    "layer": 16,
+    "index": 4086,
+    "sign": 1,
+    "scale": 0.10306768119335175,
+    "t": 55.94926452636719,
+    "hint": "asks probing questions",
+    "lo": "incurious",
+    "hi": "curious"
+  },
+  {
+    "id": "L16N4334",
+    "layer": 16,
+    "index": 4334,
+    "sign": 1,
+    "scale": 0.14527569711208344,
+    "t": 59.73432540893555,
+    "hint": "theatrical delivery",
+    "lo": "calm",
+    "hi": "dramatic"
+  }
+]
