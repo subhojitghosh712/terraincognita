@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/static/styles.css">
   <link rel="stylesheet" href="/static/navigation.css">
   <link rel="stylesheet" href="/static/learn.css">
+  <script src="/static/lattice.js" defer></script>
   <script src="/static/app.js" defer></script>
   <script src="/static/learn.js" defer></script>
   <script src="/static/navigation.js" defer></script>
@@ -52,7 +53,7 @@
       <section id="guidePanel" class="guide-panel" aria-labelledby="guideTitle" hidden>
         <div class="guide-intro"><span class="section-number">?</span><div><h3 id="guideTitle">Are both neurons needed?</h3><p>Predict, test each condition, then decide what the evidence supports. Each run includes the unchanged model.</p></div></div>
         <div class="guide-body">
-          <div class="prediction"><label for="prediction">My prediction</label><select id="prediction"><option value="">Choose a hypothesis (optional)</option value="both">Both neurons are needed for the effect</option><option value="a">Neuron A produces most of the effect</option><option value="b">Neuron B produces most of the effect</option><option value="unsure">I'm not sure yet</option></select></div>
+          <div class="prediction"><label for="prediction">My prediction</label><select id="prediction"><option value="">Choose a hypothesis (optional)</option><option value="both">Both neurons are needed for the effect</option><option value="a">Neuron A produces most of the effect</option><option value="b">Neuron B produces most of the effect</option><option value="unsure">I'm not sure yet</option></select></div>
           <div class="guide-steps" aria-label="Experiment conditions">
             <button type="button" class="guide-step" data-guide="both"><span class="step-number">1</span><span><strong>Both together</strong><small data-step-state="both">Set this condition</small></span><span data-step-check="both" aria-hidden="true">↗</span></button>
             <button type="button" class="guide-step" data-guide="a"><span class="step-number">2</span><span><strong>Only neuron A</strong><small data-step-state="a">Set this condition</small></span><span data-step-check="a" aria-hidden="true">↗</span></button>
@@ -61,6 +62,23 @@
         </div>
         <div id="reflectionSection" class="reflection-section" hidden><label for="reflection">What changed your mind?</label><p>Compare the three results above. Does your explanation also hold for a different question? An unexpected result is evidence, too.</p><textarea id="reflection" rows="2" maxlength="2000" placeholder="I observed… My explanation might fail when…"></textarea><small>Your prediction and reflection are included when you copy or download the displayed experiment.</small></div>
         <p id="guideProgress" class="guide-progress">Choose a condition, then run the experiment below.</p>
+      </section>
+
+      <!-- 3D Neural Circuit & Layer Lattice Stage -->
+      <section class="lattice-stage-container" aria-label="3D neural layer and circuit lattice visualization">
+        <div class="lattice-canvas-wrap">
+          <canvas id="latticeCanvas"></canvas>
+          <div class="lattice-hud-overlay">
+            <div class="canvas-controls-hint">
+              <span>[ Drag to rotate 3D · Scroll to zoom · Double-click to reset ]</span>
+            </div>
+            <div class="lattice-layer-legend">
+              <span class="legend-chip legend-a"><span class="legend-dot dot-a"></span> Layer 14 · Neuron 8949 (A)</span>
+              <span class="legend-chip legend-b"><span class="legend-dot dot-b"></span> Layer 13 · Neuron 7956 (B)</span>
+              <span class="legend-chip legend-c"><span class="legend-dot dot-c"></span> Residual Stream</span>
+            </div>
+          </div>
+        </div>
       </section>
 
       <div class="workspace">
@@ -95,7 +113,7 @@
               </div>
 
               <div class="control-section run-section">
-                <div class="run-context"><span class="small-dot"></span><span id="runContextLabel">Real inference · runs on this Mac</span></div>
+                <div class="run-context"><span class="small-dot"></span><span id="runContextLabel">Real inference · Qwen3.5-4B</span></div>
                 <button type="submit" id="runButton" class="primary-button" disabled><span id="runLabel">Waiting for model</span><span aria-hidden="true">↗</span></button>
                 <button type="button" id="resetButton" class="reset-button">Reset both neurons to zero</button>
               </div>

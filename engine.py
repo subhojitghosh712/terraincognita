@@ -201,12 +201,18 @@ class TorchEngine:
 
         model = None
         load_error = None
-        loaders = [AutoModelForCausalLM, AutoModel]
+        loaders = []
         try:
             from transformers import Qwen3_5ForConditionalGeneration
             loaders.append(Qwen3_5ForConditionalGeneration)
         except ImportError:
             pass
+        try:
+            from transformers import AutoModelForImageTextToText
+            loaders.append(AutoModelForImageTextToText)
+        except ImportError:
+            pass
+        loaders.extend([AutoModelForCausalLM, AutoModel])
 
         for loader_cls in loaders:
             try:
