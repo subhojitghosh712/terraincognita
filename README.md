@@ -1,4 +1,4 @@
-# Terra Incognita · Uncharted
+# Terra Incognita
 
 **Open a door into the world inside AI.** Learn how neural networks work, then change two internal signals in a real language model and compare its responses.
 
