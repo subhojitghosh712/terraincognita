@@ -1,28 +1,179 @@
-/* The two parts of Uncharted share one page, so experiments survive a visit to Learn. */
-.masthead-right { display: flex; align-items: center; gap: 26px; min-width: 0; }
-.page-switch { display: inline-flex; padding: 4px; gap: 3px; border: 1px solid var(--line); border-radius: 9px; background: var(--panel-deep); flex-shrink: 0; }
-.page-tab { min-height: 38px; padding: 8px 17px; border: 1px solid transparent; border-radius: 5px; color: var(--muted); background: transparent; font-size: 13px; font-weight: 550; }
-.page-tab[aria-selected="true"] { color: var(--ink); background: #2b3942; border-color: #3a4952; box-shadow: 0 1px 3px #0002; }
-.page-tab:hover { color: var(--ink); }
-.page-tab:focus-visible { outline-offset: 2px; }
-#experimentView:focus-visible, #learnView:focus-visible { outline: 2px solid var(--amber); outline-offset: 5px; }
-@media (max-width: 800px) {
-  .masthead-right { gap: 14px; }
-  .masthead-right .runtime-status { max-width: 135px; font-size: 10px; line-height: 1.5; }
+/* ==========================================================================
+   Navigation & Masthead Switcher
+   Centered layout with vibrant Electric Cyan glowing switcher
+   ========================================================================== */
+
+/* Three-column centered masthead layout */
+.masthead {
+  display: grid !important;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+  height: 94px;
+  border-bottom: 1px solid var(--line);
 }
-@media (max-width: 640px) {
-  .masthead { height: auto; min-height: 85px; padding: 17px 0; gap: 12px; align-items: flex-start; }
-  .masthead .wordmark { margin-top: 7px; font-size: 22px; gap: 9px; }
-  .masthead-right { flex-direction: column-reverse; gap: 9px; align-items: flex-end; }
-  .masthead-right .runtime-status { max-width: 180px; font-size: 9px; text-align: right; gap: 5px; }
-  .page-switch { padding: 3px; gap: 2px; }
-  .page-tab { min-height: 36px; padding: 7px 11px; font-size: 12px; }
+
+.masthead .wordmark {
+  justify-self: start;
 }
-@media (max-width: 360px) {
-  .masthead .wordmark { font-size: 19px; gap: 7px; }
-  .masthead .door-mark { width: 13px; height: 22px; }
-  .masthead .door-mark:after { width: 8px; left: 3px; }
-  .masthead .wordmark-dot { margin-left: -6px; }
-  .page-tab { padding: 7px 8px; font-size: 11px; }
+
+.masthead .page-switch {
+  justify-self: center;
 }
-@media (pointer: coarse) { .page-tab { min-height: 44px; } }
+
+.masthead-right {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Vibrant Electric Cyan Tab Switcher
+   -------------------------------------------------------------------------- */
+
+.page-switch {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px;
+  gap: 4px;
+  border: 1.5px solid rgba(0, 240, 255, 0.45);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(6, 26, 38, 0.94) 0%, rgba(3, 16, 24, 0.98) 100%);
+  box-shadow: 0 0 22px rgba(0, 229, 255, 0.22),
+    inset 0 0 14px rgba(0, 229, 255, 0.08),
+    0 4px 18px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.page-switch:hover {
+  border-color: rgba(0, 240, 255, 0.75);
+  box-shadow: 0 0 28px rgba(0, 229, 255, 0.35),
+    inset 0 0 16px rgba(0, 229, 255, 0.12),
+    0 6px 22px rgba(0, 0, 0, 0.55);
+}
+
+.page-tab {
+  min-height: 40px;
+  padding: 8px 46px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: #e9b76d;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.page-tab:hover {
+  color: #ffffff;
+  background: rgba(0, 240, 255, 0.14);
+  border-color: rgba(0, 240, 255, 0.35);
+  box-shadow: 0 0 14px rgba(0, 240, 255, 0.3);
+}
+
+/* Active Selected Tab: Bright Neon Cyan Glow */
+.page-tab[aria-selected="true"] {
+  color: #03141d;
+  background: #e9b76d;
+  border-color: #a0f8ff;
+  font-weight: 750;
+  box-shadow: 0 0 24px rgba(0, 240, 255, 0.8),
+    0 2px 10px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.85);
+  transform: scale(1.02);
+}
+
+.page-tab[aria-selected="true"]:hover {
+  box-shadow: 0 0 32px rgba(0, 240, 255, 0.95),
+    0 3px 12px rgba(0, 0, 0, 0.45);
+}
+
+.page-tab:focus-visible {
+  outline: 2px solid #00f0ff;
+  outline-offset: 3px;
+}
+
+#experimentView:focus-visible,
+#learnView:focus-visible {
+  outline: 2px solid #00f0ff;
+  outline-offset: 5px;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Adaptations
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .masthead {
+    gap: 12px;
+  }
+
+  .page-tab {
+    padding: 8px 28px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 720px) {
+  .masthead {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: auto !important;
+    min-height: 85px;
+    padding: 14px 0;
+    gap: 12px;
+  }
+
+  .masthead .wordmark {
+    order: 1;
+    font-size: 22px;
+  }
+
+  .masthead-right {
+    order: 2;
+    justify-self: end;
+  }
+
+  .masthead .page-switch {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-top: 4px;
+  }
+
+  .page-tab {
+    flex: 1;
+    padding: 8px 16px;
+    min-height: 38px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .masthead .wordmark {
+    font-size: 19px;
+    gap: 7px;
+  }
+
+  .page-tab {
+    padding: 7px 10px;
+    font-size: 11px;
+  }
+}
+
+@media (pointer: coarse) {
+  .page-tab {
+    min-height: 44px;
+  }
+}
