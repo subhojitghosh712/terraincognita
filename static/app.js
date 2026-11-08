@@ -400,7 +400,7 @@
     const record = exportRecord(); if (!record) return;
     const snapshot = record.snapshot || {};
     const text = [
-      'TERRA INCOGNITA — neuron-steering experiment',
+      'BRAVE NEW WORLD — neuron-steering experiment',
       `Model: ${snapshot.model_name || 'Qwen3.5-4B'} (${snapshot.revision || 'revision unavailable'})`,
       `Prompt: ${snapshot.prompt || ''}`, `Doses: A ${signed(snapshot.dose_a)}; B ${signed(snapshot.dose_b)}. Seed: ${snapshot.seed}.`,
       '', 'ORIGINAL', record.outputs?.baseline?.text || '(No completed response)', '', 'STEERED', record.outputs?.steered?.text || '(No completed response)',
@@ -415,7 +415,7 @@
   function downloadRecord() {
     const record = exportRecord(); if (!record) return;
     const url = URL.createObjectURL(new Blob([JSON.stringify(record, null, 2)], { type: 'application/json' }));
-    const link = document.createElement('a'); link.href = url; link.download = `terraincognita-${String(record.id || 'experiment').replace(/[^a-zA-Z0-9_-]/g, '')}.json`;
+    const link = document.createElement('a'); link.href = url; link.download = `bravenewworld-${String(record.id || 'experiment').replace(/[^a-zA-Z0-9_-]/g, '')}.json`;
     document.body.appendChild(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
 

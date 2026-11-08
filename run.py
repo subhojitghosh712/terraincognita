@@ -1,4 +1,4 @@
-"""Start Terra Incognita locally without depending on the current working directory."""
+"""Start Brave New World locally without depending on the current working directory."""
 import argparse
 import os
 from pathlib import Path
@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parent
 
 
 def parse_args(argv=None):
-    parser = argparse.ArgumentParser(description='Run the local Terra Incognita app.')
+    parser = argparse.ArgumentParser(description='Run the local Brave New World app.')
     parser.add_argument('--learn-only', action='store_true', help='Open the lesson without loading a model (any supported OS).')
     parser.add_argument('--port', type=int, default=8765, help='Local port (default: 8765).')
     parser.add_argument('--no-browser', action='store_true', help='Do not automatically open a browser.')
@@ -54,7 +54,7 @@ def main(argv=None):
     from server import app
     url = f'http://127.0.0.1:{args.port}'
     landing = f'{url}/#learn' if learning_only else url
-    print(f'Terra Incognita: {landing}', flush=True)
+    print(f'Brave New World: {landing}', flush=True)
     print('Keep this terminal open. Press Ctrl-C to stop.', flush=True)
     if not args.no_browser:
         threading.Thread(target=open_when_ready, args=(url, landing), daemon=True).start()

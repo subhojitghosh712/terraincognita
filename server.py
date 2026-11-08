@@ -41,7 +41,7 @@ def create_app(engine_factory=create_engine, *, learning_only=False):
         yield
         await asyncio.to_thread(manager.close)
 
-    app = FastAPI(title='Terra Incognita', docs_url=None, redoc_url=None, openapi_url=None, lifespan=lifespan)
+    app = FastAPI(title='Brave New World', docs_url=None, redoc_url=None, openapi_url=None, lifespan=lifespan)
     app.state.manager = manager
     app.add_middleware(TrustedHostMiddleware, allowed_hosts=['127.0.0.1', 'localhost'])
 
