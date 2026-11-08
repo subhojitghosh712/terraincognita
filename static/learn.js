@@ -304,6 +304,7 @@
           <div>
             <span class="learn-route-number">2</span>
             <h3>32 Transformer Blocks</h3>
+            <p>Calculates the next tokens by looking at the previous relationships</p>
           </div>
           <span class="learn-route-arrow" aria-hidden="true">→</span>
           <div>
@@ -340,42 +341,6 @@
         </div>
       </div>
 
-      <!-- TRANSFORMER BLOCK BLUEPRINT -->
-      <div class="learn-transformer">
-        <div>
-          <span class="learn-tag">ARCHITECTURE DEEP DIVE</span>
-          <h3>Inside a Transformer Block: The Residual Highway</h3>
-          <p>In modern architectures like Qwen, 32 transformer blocks process text sequentially. Information is not stored in rigid compartments; instead, each layer adds its contribution directly to a central residual stream:</p>
-          <p class="learn-equation" style="font-size: 11.5px; margin-top: 14px;">
-            x_{l+1} = x_l + \\text{Attn}(x_l) + \\text{MLP}(x_l)
-          </p>
-          <p>Because the identity shortcut bypasses the sub-layers, earlier representations are preserved, preventing vanishing gradients and enabling direct activation steering.</p>
-        </div>
-
-        <div class="learn-block-illustration" aria-label="Transformer block blueprint with residual skip connection">
-          <span class="learn-block-end">Representation Vector in [x_l]</span>
-          <div class="learn-block-path">
-            <span class="learn-shortcut">Residual Bypass [x_l] ↓</span>
-            <div class="learn-block-step">
-              <span>01</span>
-              <div>
-                <strong>Multi-Head Attention</strong>
-                <small>Routes contextual information between all token positions.</small>
-              </div>
-            </div>
-            <span class="learn-block-arrow" aria-hidden="true">↓</span>
-            <div class="learn-block-step learn-block-mlp">
-              <span>02</span>
-              <div>
-                <strong>SwiGLU MLP Layers</strong>
-                <small>High-dimensional projection &amp; non-linear feature transformation.</small>
-              </div>
-            </div>
-          </div>
-          <span class="learn-block-end">Summation [x_{l+1}] → Next Block</span>
-          <small>Qwen3.5-4B Architecture · 32 Repeating Residual Blocks</small>
-        </div>
-      </div>
     </section>
 
     <!-- CHAPTER 04: ACTIVATION STEERING -->
